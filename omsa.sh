@@ -78,7 +78,7 @@ case "$3" in
 	echo "$($OMSABIN storage vdisk controller=$CONTROLLER vdisk=$VDISK | grep ^Layout | awk '{print $3}')"
 	;;
 	size)
-	echo "$($OMSABIN storage vdisk controller=$CONTROLLER vdisk=$VDISK | grep ^Size | awk '{print $3}')"
+	echo "$($OMSABIN storage vdisk controller=$CONTROLLER vdisk=$VDISK | grep ^Size | awk '{print $5}' | grep -Eo '[0-9]+')"
 	;;
 	*)
 	exit

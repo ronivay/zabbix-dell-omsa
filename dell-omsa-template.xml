@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>4.0</version>
-    <date>2018-12-11T10:47:05Z</date>
+    <date>2018-12-24T10:27:03Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -162,7 +162,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>omsa.model</key>
-                    <delay>86400s</delay>
+                    <delay>86400</delay>
                     <history>90d</history>
                     <trends>0</trends>
                     <status>0</status>
@@ -221,7 +221,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>omsa.stag</key>
-                    <delay>86400s</delay>
+                    <delay>86400</delay>
                     <history>90d</history>
                     <trends>0</trends>
                     <status>0</status>
@@ -280,7 +280,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>omsa.status</key>
-                    <delay>1800s</delay>
+                    <delay>86400s</delay>
                     <history>90d</history>
                     <trends>0</trends>
                     <status>0</status>
@@ -1216,9 +1216,9 @@
                             <history>90d</history>
                             <trends>365d</trends>
                             <status>0</status>
-                            <value_type>0</value_type>
+                            <value_type>3</value_type>
                             <allowed_hosts/>
-                            <units>GB</units>
+                            <units>B</units>
                             <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
