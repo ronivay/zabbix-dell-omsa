@@ -145,12 +145,12 @@ echo "$($OMSABIN chassis pwrsupplies | grep -A1 "^Index.*$PSU" | tail -1 |  awk 
 
 }
 
-function NicDiscovery {
+function RAMDiscovery {
 
-IFS=$'\n' read -r -d '' -a NICS <<< "$($OMSABIN chassis nics | sed -n "/Physical NIC Interface/, /Team Interface/ p" | grep "^Interface Name" | awk '{print $4}')"
+IFS=$'\n' read -r -d '' -a RAMS <<< "$($OMSABIN chassis memory | grep "Index" | awk '{print $3}' | grep -Eo '[0-9]+')"
 
-for NIC in "${NICS[@]}"; do
-  RESULT+=$(echo -e "\n{\n\"{#NIC}\": \"$NIC\"\n},")
+for RAM in "${RAMS[@]}"; do
+  RESULT+=$(echo -e "\n{\n\"{#RAM}\": \"$RAM\"\n},")
 done
 
 echo -e "{"
@@ -163,11 +163,11 @@ echo "]}"
 
 }
 
-function NicStatus {
+function RAMStatus {
 
-NIC="$1"
+RAM="$1"
 
-STATUS="$($OMSABIN chassis nics | grep -A4 "^Interface Name.*$NIC" | grep "^Connection Status" | awk '{print $4}')"
+STATUS="$($OMSABIN chassis memory index=$RAM | grep "^Status" | awk '{print $3}')"
 
 echo "$STATUS"
 
@@ -278,11 +278,11 @@ function HandleArgs {
 		psustatus)
 			PsuStatus $2
 			;;
-		nicdiscovery)
-			NicDiscovery
+		ramdiscovery)
+			RAMDiscovery
 			;;
-		nicstatus)
-			NicStatus $2
+		ramstatus)
+			RAMStatus $2
 			;;
 		tempdiscovery)
 			TempDiscovery

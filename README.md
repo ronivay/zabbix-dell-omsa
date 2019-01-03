@@ -25,10 +25,10 @@ Script and template in this repository will monitor the most important component
 Discovered items:
 - Virtual disks and their controller
 - Physical disks and their controller
-- Fans
-- PSU's
+- Fans with their index number
+- PSU's with their index number
 - Temperature sensors
-- Physical NIC's
+- RAM with their index number
 
 Monitored items and triggers:
 - Individual physical disks and their status
@@ -40,8 +40,8 @@ Monitored items and triggers:
 - Individual PSU's and their status
   `Trigger: PSU status not ok`
 - Individual temperature sensors and their value
-- Individual NIC's and their connection state
-  `Trigger: NIC state changed (from connected to disconnected for example)`
+- Individual RAM modules and their status
+  `Trigger: RAM status not ok`
 - Server model
 - Server service tag
 - Server BIOS version
