@@ -682,7 +682,7 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template OMSA:omsa.pdstatus[{#PDISK},{#CONTROLLER},status].iregexp(Online,#1)}=0</expression>
+                            <expression>{Template OMSA:omsa.pdstatus[{#PDISK},{#CONTROLLER},status].iregexp(Online|Ready,#1)}=0</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
                             <name>Physical disk {#PDISK} failed</name>
